@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Power
 {
@@ -22,51 +24,39 @@ namespace Power
                     Console.WriteLine("     Enter 1 or 2");
                     break;
             }
+
             static void Max()
             {
                 Console.Write("     How many numbers do you have? ");
                 int all = Convert.ToInt32(Console.ReadLine());
-                int[] max = new int[all];
+                var max = new List<int>();
                 int counter = 1;
-                int maxNum = max[0];
                 for (int i = all; i != 0; i--)
                 {
                     Console.Write($"     Number {counter} --> ");
-                    max = new int[] { Convert.ToInt32(Console.ReadLine()) };
-                    foreach (int num in max)
-                    {
-                        if (maxNum < num)
-                        {
-                            maxNum = num;
-                        }
-                    }
+                    var newNum = Convert.ToInt32(Console.ReadLine());
+                    max.Add(newNum);
                     counter++;
                 }
+                int maxNum = max.Max();
                 Console.WriteLine();
                 Console.WriteLine($"     Maximum number is {maxNum}");
-
-
             }
+
             static void Min()
             {
                 Console.Write("     How many numbers do you have? ");
                 int all = Convert.ToInt32(Console.ReadLine());
-                int[] min = new int[all];
+                var min = new List<int>();
                 int counter = 1;
-                int minNum = min[0];
                 for (int i = all; i != 0; i--)
                 {
                     Console.Write($"     Number {counter} --> ");
-                    min = new int[] { Convert.ToInt32(Console.ReadLine()) };
-                    foreach (int num in min)
-                    {
-                        if (minNum > num)
-                        {
-                            minNum = num;
-                        }
-                    }
+                    var newNum = Convert.ToInt32(Console.ReadLine());
+                    min.Add(newNum);
                     counter++;
                 }
+                int minNum = min.Min();
                 Console.WriteLine();
                 Console.WriteLine($"     Minimum number is {minNum}");
             }
